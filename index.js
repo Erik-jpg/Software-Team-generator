@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
-const managerData = require('./Utilities/Manager');
-const engineerData = require('../Utilities/Engineer');
-const inturnData = require('../Utilities/Intern');
+const Manager = require('./Utilities/Manager');
+const Engineer = require('../Utilities/Engineer');
+const Intern = require('../Utilities/Intern');
 const generateEmployees = require('../Utilities/Team');
 const createHTML = require('../Utilities/htmlCreator');
 
