@@ -4,7 +4,7 @@
   "description": "This is for Homework 10 and using inquirer, express to gather information and then respond with a HTML generated webpage that displays employee information in cards.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Erik-jpg/Software-Team-generator#readme",
   "dependencies": {
-    "inquirer": "^8.1.2"
+    "inquirer": "^8.1.2",
+    "jest": "^27.1.0",
+    "js": "^0.1.0",
+    "node": "^16.6.1"
   }
 }
