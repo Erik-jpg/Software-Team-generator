@@ -1,26 +1,27 @@
 const Intern = require('../Utilities/Intern');
 
 test('Intern receives a name', () => {
-    const Intern = new Intern({name:'Johnny', id:'1007', email:'IAmTheChange@example.com', role:'Intern', school:'FutureOfTheIndustry'});
-    expect(Intern.getName()).toBe('Johnny');
+    const intern = new Intern('Johnny','1007', 'IAmTheChange@example.com', 'Intern', 'FutureOfTheIndustry');
+    expect(intern.getName()).toBe('Johnny');
 });
 
 test('Intern receives an id', () => {
-    const Intern = new Intern({name:'Johnny', id:'1007', email:'IAmTheChange@example.com', role:'Intern', school:'FutureOfTheIndustry'});
-    expect(Intern.getId()).toBe('1007');
+    const intern = new Intern('Johnny','1007', 'IAmTheChange@example.com', 'Intern', 'FutureOfTheIndustry');
+    expect(intern.getId()).toBe('1007');
 });
 
 test('Intern receives an email', () => {
-    const Intern = new Intern({name:'Johnny', id:'1007', email:'IAmTheChange@example.com', role:'Intern', school:'FutureOfTheIndustry'});
-    expect(Intern.getEmail()).toBe('IAmTheChange@example.com');
+    const intern = new Intern('Johnny','1007', 'IAmTheChange@example.com', 'Intern', 'FutureOfTheIndustry');
+    expect(intern.getEmail()).toBe('IAmTheChange@example.com');
 });
 
 test('Intern receives an role', () => {
-    const Intern = new Intern({name:'Johnny', id:'1007', email:'IAmTheChange@example.com', role:'Intern', school:'FutureOfTheIndustry'});
-    expect(Intern.getRole()).toBe('Intern');
+    const intern = new Intern('Johnny','1007', 'IAmTheChange@example.com', 'Intern', 'FutureOfTheIndustry');
+    expect(intern.getRole()).toBe('Intern');
 });
 
 test('Intern receives a school', () => {
-    const Intern = new Intern({name:'Johnny', id:'1007', email:'IAmTheChange@example.com', role:'Intern', school:'FutureOfTheIndustry'});
-    expect(Intern.getSchool()).toBe('FutureOfTheIndustry');
+    const intern = new Intern('Johnny','1007', 'IAmTheChange@example.com', 'Intern', 'FutureOfTheIndustry');
+    console.log(intern)
+    expect(intern.getSchool()).toBe('FutureOfTheIndustry');
 });

@@ -4,7 +4,8 @@ const Employee = require("./Employee");
 const Manager = require("./Manager");
 const Engineer = require("./Engineer");
 const Intern = require("./Intern");
-
+// const headOfPage = require("./htmlPage/headOfPage.txt");
+// const footOfPage = require("../htmlPage/footOfPage");
 class Team {
   constructor(managerArr, engineerArr, internsArr) {
     this.managerArr = [];
@@ -17,7 +18,7 @@ class Team {
       this.managerArr = new Manager(managerEntries);
       this.buildPage();
     };
-    teamEntries();
+    teamEntries();console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
   }
 
   async promptForManager() {
@@ -51,7 +52,7 @@ class Team {
     managerAnswers.role = "Manager";
     this.managerArr.push(new Manager(managerAnswers));
     if(managerAnswers.another) return buildEmployees();
-    this.buildPage();
+    this.buildPage();console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
   }
 
   buildEmployees() {
@@ -87,7 +88,7 @@ class Team {
       this.engineerArr.push(new Engineer(engineerAnswers));
       if (engineerAnswers.addAnotherEngineer) return promptForEngineer();
       this.buildPage();
-    };
+    };console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
 
     const promptForIntern = async () => {
       const internAnswers = await this.inquirer.prompt([
@@ -122,23 +123,25 @@ class Team {
       if (internAnswers.addAnotherIntern) return promptForIntern();
       buildPage();
     };
-  }
+  };
   //need to write
+  
+  
   buildPage() {
     const headOfPage = fs.readFileSync(
-      "./htmlPage/headOfPage.txt",
+      "../../htmlPage/headOfPage.txt",
       "utf8",
       (err) => {
-        throw new Error(err);
+        throw new Error(err);console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
       }
     );
     const footOfPage = fs.readFileSync(
-      "./htmlPage/footOfPage.txt",
+      "htmlPage/footOfPage.txt",
       "utf8",
       (err) => {
         throw new Error(err);
       }
-    );
+    );console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
     const styleOfPage = fs.readFileSync(
       "./htmlPage/styleOfPage.css",
       "utf8",
