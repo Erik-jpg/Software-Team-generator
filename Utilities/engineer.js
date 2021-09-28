@@ -1,8 +1,7 @@
 const Employee = require('./Employee');
 class Engineer extends Employee {
-    //Some people use object brackets in the constructor and super, might need later.
-    constructor(name, id, email, role, github) {
-        super(name, id, email, role)
+    constructor({ name, id, email, role, github }) {
+        super({ name, id, email, role });
         this.github = github;
     }
 

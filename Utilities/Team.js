@@ -18,7 +18,7 @@ class Team {
       this.managerArr = new Manager(managerEntries);
       this.buildPage();
     };
-    teamEntries();console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
+    teamEntries();
   }
 
   async promptForManager() {
@@ -51,13 +51,15 @@ class Team {
     ]);
     managerAnswers.role = "Manager";
     this.managerArr.push(new Manager(managerAnswers));
-    if(managerAnswers.another) return buildEmployees();
-    this.buildPage();console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
+    // if(managerAnswers.another) 
+    // return 
+    buildEmployees();
+    // this.buildPage();
   }
 
   buildEmployees() {
     const promptForEngineer = async () => {
-      const engineerAnswers = await this.inquirer.prompt([
+      const engineerAnswers = await inquirer.prompt([
         {
           type: "input",
           name: "engineerName",
@@ -88,10 +90,10 @@ class Team {
       this.engineerArr.push(new Engineer(engineerAnswers));
       if (engineerAnswers.addAnotherEngineer) return promptForEngineer();
       this.buildPage();
-    };console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
+    };
 
     const promptForIntern = async () => {
-      const internAnswers = await this.inquirer.prompt([
+      const internAnswers = await inquirer.prompt([
         {
           type: "input",
           name: "internName",
@@ -119,20 +121,19 @@ class Team {
         },
       ]);
       internAnswers.role = "Intern";
-      this.internsArr.push(new Intern(internAnswers));
+      const newIntern = new Intern(internAnswers);
+      this.internsArr.push(newIntern);
       if (internAnswers.addAnotherIntern) return promptForIntern();
       buildPage();
     };
   };
-  //need to write
-  
   
   buildPage() {
     const headOfPage = fs.readFileSync(
-      "../../htmlPage/headOfPage.txt",
+      "../htmlPage/headOfPage.txt",
       "utf8",
       (err) => {
-        throw new Error(err);console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
+        throw new Error(err);
       }
     );
     const footOfPage = fs.readFileSync(
@@ -141,7 +142,7 @@ class Team {
       (err) => {
         throw new Error(err);
       }
-    );console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../htmlPage/headOfPage'));
+    );
     const styleOfPage = fs.readFileSync(
       "./htmlPage/styleOfPage.css",
       "utf8",
@@ -150,7 +151,9 @@ class Team {
       }
     );
 
-    const managerStats = this.managerArr.generateManagerStats();
+    const managerStats = this.managerArr.map((Manager) => {
+      return Manager.generateManagerStats() + "\n";
+    });
     const engineerStats = this.engineerArr.map((Engineer) => {
       return Engineer.generateEngineerStats() + "\n";
     });
