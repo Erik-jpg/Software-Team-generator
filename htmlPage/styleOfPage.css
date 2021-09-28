@@ -1,0 +1,17 @@
+#manager {
+    background-color: blue;
+}
+
+#engineer {
+    background-color: green;
+}
+
+#intern {
+    background-color: red;
+}
+
+.card {
+    padding: 10px;
+    margin: 15px;
+    margin-top: 20px;
+}
