@@ -52,8 +52,8 @@ class Team {
     managerAnswers.role = "Manager";
     this.managerArr.push(new Manager(managerAnswers));
     // if(managerAnswers.another) 
-    // return 
-    buildEmployees();
+    return managerAnswers;
+    // buildEmployees();
     // this.buildPage();
   }
 
@@ -168,7 +168,7 @@ class Team {
     ${footOfPage}\n`;
 
     fs.writeFileSync(
-      "./newTeam/new-software-team.html",
+      "./dist/new-software-team.html",
       pageLayout,
       "utf8",
       (err) => {
@@ -176,7 +176,7 @@ class Team {
       }
     );
     fs.writeFileSync(
-      "./newTeam/new-software-team.html",
+      "./dist/new-software-team.html",
       styleOfPage,
       "utf8",
       (err) => {
